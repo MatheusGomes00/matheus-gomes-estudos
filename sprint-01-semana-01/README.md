@@ -1,5 +1,6 @@
 ## Sprint 01 Semana 01 ##
-Entregável da Semana 1:
+  
+Entregaveis da Semana 1:
 
 1. Instalação e Configuração do Git
 2. Criação de um Repositório Local
@@ -20,3 +21,7 @@ Entregável da Semana 1:
   • Faça alterações em uma branch, envie para o repositório remoto e abra um pull request no GitHub.
 10.Revisão de Código e Merge de Pull Request
   • Revise um pull request, aprove ou solicite mudanças, e faça o merge na branch principal.
+
+• Orientações sobre Git e GitHub, pricipais comandos aprendidos:
+  [Notion](https://awake-andesaurus-fde.notion.site/Introdu-o-Git-GitHub-a3742fbeb70b4e079b2908a926e9e7c4)
+
