@@ -1,0 +1,30 @@
+06/08 14:13
+
+Scrum, está relacinado a gerenciamento de projetos e equipes ágeis
+
+o nome vem de um movimento do scrum no rugby...
+
+scrum.org
+
+A fazer, fazendo, feito
+
+backlog e review
+
+visibilidade, todos devem saber oq todos estão fazendo, para onde a equipe está caminhando
+
+regras, papéis e rotinas
+
+A arte de fazer o dobro de trabalho em menos tempo >> livro
+
+PDCA
+
+papeis - pessoas, PO, Scrum Master, Time de desenvolvimento
+
+artefatos - backlog, product backlog, sprint backlog, histórias (não ha tarefas, mas historias), 
+
+eventos - sprint(ciclo de desenvolvimento), sprint planning, qual meta ser atingida com essa ideia, daily scrum, sprint review no ultimo dia da sprint. 
+sprint retrospective (como foi o progresso da ultma sprint) no máximo 4 horas
+
+o que foi feito, o que pretendo fazer, quais os impedimentos.
+
+a sprint não deve durar mais que 4 semanas. reuniões de no máximo 15 minutos
