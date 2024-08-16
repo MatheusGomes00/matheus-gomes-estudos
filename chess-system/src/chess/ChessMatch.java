@@ -8,12 +8,28 @@ import chess.pieces.Torre;
 
 public class ChessMatch {
 
+    private int turn;
+    private Color currentPlayer;
     private Board board;
 
     public ChessMatch() {
         this.board = new Board(8, 8);
+        turn = 1;
+        currentPlayer = Color.BRANCO;
         initialSetup();
     }
+
+    public int getTurn() {
+        return turn;
+    }
+
+
+
+    public Color getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+
 
     public ChessPiece[][] getPieces(){
         ChessPiece[][] matrizAux = new ChessPiece[board.getRows()][board.getColumns()];
@@ -38,6 +54,7 @@ public class ChessMatch {
         validateSourcePosition(source);
         validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
+        nextTurn();
         return (ChessPiece)capturedPiece;
     }
 
@@ -52,6 +69,9 @@ public class ChessMatch {
         if(!board.thereIsAPiece(position)){
             throw new ChessException("Não tem nenhuma peça na posição de origem");
         }
+        if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()){
+            throw new ChessException("A peça escolhina não é sua");
+        }
         if(!board.piece(position).isThereAnyPossibleMove()){
             throw new ChessException("Não existe movimentos possíveis para a peça escolhida.");
         }
@@ -63,24 +83,29 @@ public class ChessMatch {
         }
     }
 
+    private void nextTurn(){
+        turn++;
+        currentPlayer = (currentPlayer == Color.BRANCO) ? Color.PRETO : Color.BRANCO;
+    }
+
     private void placeNewPiece(char column, int row, ChessPiece piece){
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
     private void initialSetup(){
-        placeNewPiece('c', 2, new Torre(board, Color.WHITE));
-        placeNewPiece('d', 2, new Torre(board, Color.WHITE));
-        placeNewPiece('e', 2, new Torre(board, Color.WHITE));
-        placeNewPiece('e', 1, new Torre(board, Color.WHITE));
-        placeNewPiece('d', 1, new Rei(board, Color.WHITE));
-        placeNewPiece('c', 1, new Torre(board, Color.WHITE));
+        placeNewPiece('c', 2, new Torre(board, Color.BRANCO));
+        placeNewPiece('d', 2, new Torre(board, Color.BRANCO));
+        placeNewPiece('e', 2, new Torre(board, Color.BRANCO));
+        placeNewPiece('e', 1, new Torre(board, Color.BRANCO));
+        placeNewPiece('d', 1, new Rei(board, Color.BRANCO));
+        placeNewPiece('c', 1, new Torre(board, Color.BRANCO));
 
-        placeNewPiece('c', 8, new Torre(board, Color.BLACK));
-        placeNewPiece('c', 7, new Torre(board, Color.BLACK));
-        placeNewPiece('d', 7, new Torre(board, Color.BLACK));
-        placeNewPiece('e', 7, new Torre(board, Color.BLACK));
-        placeNewPiece('e', 8, new Torre(board, Color.BLACK));
-        placeNewPiece('d', 8, new Rei(board, Color.BLACK));
+        placeNewPiece('c', 8, new Torre(board, Color.PRETO));
+        placeNewPiece('c', 7, new Torre(board, Color.PRETO));
+        placeNewPiece('d', 7, new Torre(board, Color.PRETO));
+        placeNewPiece('e', 7, new Torre(board, Color.PRETO));
+        placeNewPiece('e', 8, new Torre(board, Color.PRETO));
+        placeNewPiece('d', 8, new Rei(board, Color.PRETO));
 
     }
 }

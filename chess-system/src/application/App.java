@@ -1,7 +1,7 @@
 package application;
 
-import boardgame.Board;
-import boardgame.Position;
+// import boardgame.Board;
+// import boardgame.Position;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -25,7 +25,7 @@ public class App {
         while(true) {
             try {
                 UI.clearScreen();
-                UI.printBoard(chessMatch.getPieces());
+                UI.printMatch(chessMatch);
                 System.out.print("\nOrigem: ");
                 ChessPosition source = UI.readChessPosition(sc);
 
