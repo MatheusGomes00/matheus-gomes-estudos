@@ -29,6 +29,10 @@ public class App {
                 System.out.print("\nOrigem: ");
                 ChessPosition source = UI.readChessPosition(sc);
 
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+
                 System.out.print("\nDestino: ");
                 ChessPosition target = UI.readChessPosition(sc);
 
