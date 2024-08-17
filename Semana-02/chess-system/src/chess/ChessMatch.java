@@ -70,7 +70,7 @@ public class ChessMatch {
 
         if(testCheck(currentPlayer)){
             undoMove(source, target, capturedPiece);
-            throw new ChessException("Você não pose se colocar em Check");
+            throw new ChessException("Voce não pose se colocar em Check");
         }
 
         check = (testCheck(opponent(currentPlayer))) ? true : false;
@@ -111,19 +111,19 @@ public class ChessMatch {
 
     private void validateSourcePosition(Position position){
         if(!board.thereIsAPiece(position)){
-            throw new ChessException("Não tem nenhuma peça na posição de origem");
+            throw new ChessException("Nao tem nenhuma peça na posicao de origem");
         }
         if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()){
-            throw new ChessException("A peça escolhina não é sua");
+            throw new ChessException("A peca escolhina nao e sua");
         }
         if(!board.piece(position).isThereAnyPossibleMove()){
-            throw new ChessException("Não existe movimentos possíveis para a peça escolhida.");
+            throw new ChessException("Nao existe movimentos possiveis para a peca escolhida.");
         }
     }
 
     private void validateTargetPosition(Position source, Position target){
         if(!board.piece(source).possibleMove(target)){
-            throw new ChessException("A peça escolhida não pode se mover para posição destino");
+            throw new ChessException("A peca escolhida nao pode se mover para posicao destino");
         }
     }
 
@@ -144,7 +144,7 @@ public class ChessMatch {
                 return (ChessPiece)p;
             }
         }
-        throw new IllegalStateException("Não tem rei " + color + " no tabuleiro... bina o adm");
+        throw new IllegalStateException("Nao tem rei " + color + " no tabuleiro... bina o adm");
     }
 
     private boolean testCheck(Color color){
