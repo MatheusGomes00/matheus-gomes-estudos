@@ -45,10 +45,17 @@ public class App {
                 if(capturedPiece != null){
                     captured.add(capturedPiece);
                 }
+
+                if(chessMatch.getPromoted() != null){
+                    System.out.print("Digite a peca para promocao (B/C/T/Q): ");
+                    String type = sc.nextLine();
+                    chessMatch.replacePromotedPiece(type);
+                }
             } catch(ChessException | InputMismatchException e){
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
+
         }
         UI.clearScreen();
         UI.printMatch(chessMatch, captured);
