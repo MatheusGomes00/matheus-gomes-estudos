@@ -3,10 +3,7 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import chess.pieces.Bispo;
-import chess.pieces.Peao;
-import chess.pieces.Rei;
-import chess.pieces.Torre;
+import chess.pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,12 +193,12 @@ public class ChessMatch {
     private void initialSetup(){
         // pecas brancas
         placeNewPiece('a', 1, new Torre(board, Color.BRANCO));
-        // placeNewPiece('b', 1, new Cavalo(board, Color.BRANCO));
+        placeNewPiece('b', 1, new Cavalo(board, Color.BRANCO));
         placeNewPiece('c', 1, new Bispo(board, Color.BRANCO));
         // placeNewPiece('d', 1, new Rainha(board, Color.BRANCO));
         placeNewPiece('e', 1, new Rei(board, Color.BRANCO));
         placeNewPiece('f', 1, new Bispo(board, Color.BRANCO));
-        // placeNewPiece('g', 1, new Cavalo(board, Color.BRANCO));
+        placeNewPiece('g', 1, new Cavalo(board, Color.BRANCO));
         placeNewPiece('h', 1, new Torre(board, Color.BRANCO));
         placeNewPiece('a', 2, new Peao(board, Color.BRANCO));
         placeNewPiece('b', 2, new Peao(board, Color.BRANCO));
@@ -214,12 +211,12 @@ public class ChessMatch {
 
         // pecas pretas
         placeNewPiece('a', 8, new Torre(board, Color.PRETO));
-        // placeNewPiece('b', 8, new Cavalo(board, Color.PRETO));
+        placeNewPiece('b', 8, new Cavalo(board, Color.PRETO));
         placeNewPiece('c', 8, new Bispo(board, Color.PRETO));
         // placeNewPiece('d', 8, new Rainha(board, Color.PRETO));
         placeNewPiece('e', 8, new Rei(board, Color.PRETO));
         placeNewPiece('f', 8, new Bispo(board, Color.PRETO));
-        // placeNewPiece('g', 8, new Cavalo(board, Color.PRETO));
+        placeNewPiece('g', 8, new Cavalo(board, Color.PRETO));
         placeNewPiece('h', 8, new Torre(board, Color.PRETO));
         placeNewPiece('a', 7, new Peao(board, Color.PRETO));
         placeNewPiece('b', 7, new Peao(board, Color.PRETO));
