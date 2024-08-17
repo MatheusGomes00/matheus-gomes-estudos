@@ -4,8 +4,6 @@ import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.*;
-
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -80,7 +78,7 @@ public class ChessMatch {
 
         if(testCheck(currentPlayer)){
             undoMove(source, target, capturedPiece);
-            throw new ChessException("Voce não pose se colocar em Check");
+            throw new ChessException("Voce nao pose se colocar em Check");
         }
 
         ChessPiece movedPiece = (ChessPiece)board.piece(target);
@@ -117,7 +115,7 @@ public class ChessMatch {
             throw new IllegalStateException("Nao tem pecas para ser promovida");
         }
         if(!type.equals("B") && !type.equals("C") && !type.equals("T") && !type.equals("Q")){
-            throw new InvalidParameterException("Tipo invalido para promocao");
+            return promoted;
         }
 
         Position pos = promoted.getChessPosition().toPosition();

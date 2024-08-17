@@ -7,6 +7,7 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -48,7 +49,11 @@ public class App {
 
                 if(chessMatch.getPromoted() != null){
                     System.out.print("Digite a peca para promocao (B/C/T/Q): ");
-                    String type = sc.nextLine();
+                    String type = sc.nextLine().toUpperCase();
+                    while(!type.equals("B") && !type.equals("C") && !type.equals("T") && !type.equals("Q")){
+                        System.out.print("Tipo invalido. Digite a peca para promocao (B/C/T/Q): ");
+                        type = sc.nextLine().toUpperCase();
+                    }
                     chessMatch.replacePromotedPiece(type);
                 }
             } catch(ChessException | InputMismatchException e){
