@@ -7,10 +7,13 @@ import entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-/*
+        Scanner sc = new Scanner(System.in);
+
+        /*
         Department obj = new Department(1, "Eletronics");
 
         Seller seller = new Seller(10, "Matias", "matias@gmail.com", new Date(), 5000.0, obj);
@@ -39,7 +42,7 @@ public class App {
         list.forEach(System.out::println);
 
         System.out.println("\n==== TEST 4: seller insert ====");
-        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4500.0, department);
+        Seller newSeller = new Seller(null, "Chris", "chris@gmail.com", new Date(), 4500.0, department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted! New id = " + newSeller.getId());
 
@@ -48,5 +51,12 @@ public class App {
         seller.setName("Matheus Gomes");
         sellerDao.update(seller);
         System.out.println("Updated!");
+
+        System.out.println("\n==== TEST 6: seller delete ====");
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed!");
+        sc.close();
     }
 }
