@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f171ff1-a9f9-4c6a-b57e-e3aaad7de27a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DepartmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/SellerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SellerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Semana-03/exercicios/codeWithJDBCandMysql/projetoDemoDaoJDBC/demo-dao-jdbc/src/dao/impl/SellerDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semana-03/exercicios/codeWithJDBCandMysql/projetoDemoDaoJDBC/demo-dao-jdbc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Semana-03/exercicios/codeWithJDBCandMysql/projetoDemoDaoJDBC/demo-dao-jdbc/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Semana-03/exercicios/codeWithJDBCandMysql/projetoDemoDaoJDBC/demo-dao-jdbc/src/application/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Semana-03/exercicios/codeWithJDBCandMysql/projetoDemoDaoJDBC/demo-dao-jdbc/src/application/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

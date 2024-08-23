@@ -1,5 +1,7 @@
 package application;
 
+import dao.DaoFactory;
+import dao.SellerDao;
 import entities.Department;
 import entities.Seller;
 
@@ -11,6 +13,11 @@ public class App {
         Department obj = new Department(1, "Eletronics");
 
         Seller seller = new Seller(10, "Matias", "matias@gmail.com", new Date(), 5000.0, obj);
+
+        // dessa forma eviatamos que a aplicação conheça a implementação
+        // expomos somente a interface, fazendo uma injeção de dependencia
+        // sem especificar a implementação
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println(seller);
 
