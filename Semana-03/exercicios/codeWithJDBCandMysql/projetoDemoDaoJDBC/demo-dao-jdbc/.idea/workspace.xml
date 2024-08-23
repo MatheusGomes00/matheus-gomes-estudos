@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5f171ff1-a9f9-4c6a-b57e-e3aaad7de27a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo-dao-jdbc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/atualizar/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/baseDados/database.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/connectBasics/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/deletar/src/jdbc1/db/DbIntegrityException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/docs/Nivelamento+Álgebra+Relacional+e+SQL.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/docs/acesso-a-dados-com-jdbc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/inserir/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/recuperar/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/jdbc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/src/jdbc1/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/src/jdbc1/db/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/src/jdbc1/db/DbException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../codeWithJDBCandMysql/transacoes/src/jdbc1/db/DbIntegrityException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/.idea/jacaCode.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/EqualHashCode.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/src/Exemplo1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/src/personalizado/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/EqualHashCode/src/personalizado/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/Generics.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/calcService/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/calcService/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/calcService/services/CalculationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/printService/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/printService/services/PrintService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/Exemplo1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/Contravariancia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/Covariancia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/entities/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/entities/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Generics/src/tipoCuringa/curingasDelimitados/entities/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/Map.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/src/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/src/application/Program2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Map/src/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/ProgramacaoFuncional.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/comparator/application/MyComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/comparator/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/comparator/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/consumer/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/consumer/util/PriceUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/exerciciosPipeline/ex01/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/exerciciosPipeline/ex01/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/exerciciosPipeline/ex02/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/exerciciosPipeline/ex02/entities/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/exerciciosPipeline/ex02/services/EmployeeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/function/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/function/util/UpperCaseName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/paramFunction/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/paramFunction/model/services/ProductServices.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/predicate/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/predicate/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/predicate/util/ProductPredicate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/streamPipeline/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/ProgramacaoFuncional/src/streams/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/Set.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/application/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/application/Program2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/application/Program3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/application/Program4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/entities/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/exercicio/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/Set/src/exercicio/entities/LogEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.idea/exerciciosExemplos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/comparable/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/comparable/entities/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/defaultMethods/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/defaultMethods/services/BrazilInterestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/defaultMethods/services/InterestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/defaultMethods/services/UsaInterestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/ComboDevice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/ConcretePrinter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/ConcreteScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/Device.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/Printer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/devices/equips/Scanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/model/entities/AbstractShape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/model/entities/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/model/entities/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/model/entities/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/formasGeom/model/enums/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/entities/CarRental.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/entities/Invoice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/entities/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/model/services/BrazilTaxService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/model/services/RentalService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/locacao/model/services/TaxService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/application/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/entities/Contract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/entities/Installment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/services/ContractService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/services/OnlinePaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../jacaCode/exerciciosExemplos/Interfaces/src/parcelas/services/PaypalService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../javaDocs/13-generics-set-map.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../javaDocs/13-interfaces.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../javaDocs/15-programacao-funcional-expressoes-lambda.pdf" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MatheusGomes00"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MatheusGomes00/matheus-gomes-estudos.git",
+    "accountId": "a9c90cc0-8f82-4060-8ed5-e42fd91818ba"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2l2Pmfe52GtEdyJmF6TQzzheYxe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f171ff1-a9f9-4c6a-b57e-e3aaad7de27a" name="Changes" comment="" />
+      <created>1724375360758</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724375360758</updated>
+    </task>
+    <servers />
+  </component>
+</project>
