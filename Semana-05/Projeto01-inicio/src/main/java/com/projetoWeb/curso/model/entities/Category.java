@@ -1,5 +1,6 @@
 package com.projetoWeb.curso.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -18,7 +19,8 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @Transient
+    @JsonIgnore  // permite que a classe Product carregue o json da Category
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
     public Category() {

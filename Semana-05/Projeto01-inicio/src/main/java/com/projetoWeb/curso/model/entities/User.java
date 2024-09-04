@@ -21,7 +21,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-    @JsonIgnore  // não entendi bem como funciona, remove o loop de cliente para pedido?
+    @JsonIgnore  // permite que a classe Order carregue o json da User
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
