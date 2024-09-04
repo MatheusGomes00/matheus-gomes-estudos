@@ -1,6 +1,7 @@
 package com.projetoWeb.curso.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.projetoWeb.curso.model.entities.enums.OrderStatus;
 import com.projetoWeb.curso.model.entities.pk.OrderItemPK;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
 
     private Integer quantity;
     private Double price;
@@ -30,6 +31,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore  // este get chama o pedido e gera loop. permite que a classe Order carregue o json da OrderItem
     public Order getOrder(){
         return id.getOrder();
     }
