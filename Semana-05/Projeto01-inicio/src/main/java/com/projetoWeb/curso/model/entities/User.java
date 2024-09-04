@@ -21,7 +21,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
-    @JsonIgnore  // permite que a classe Order carregue o json da User
+    @JsonIgnore  // permite que a classe Order carregue o json da User pela associação
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 

@@ -19,7 +19,7 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @JsonIgnore  // permite que a classe Product carregue o json da Category
+    @JsonIgnore  // permite que a classe Product carregue o json da Category pela associação
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
