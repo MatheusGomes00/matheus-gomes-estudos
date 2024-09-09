@@ -1,17 +1,48 @@
-**Atividade 4 Semana 5**
+# CRUD Biblioteca
+Sistema para bibliotecas desenvolvido na atividade 4 da semana 5 do programa de bolsas Uol Compass turma SpringBoot AWS AGO2024;
 
-Config:
-- pom.xml:
-    
+## Requisitos
 
-- application.properties:
-    spring.data.mongodb.uri=mongodb://localhost:27017/library
+- Java Development Kit (JDK) 17 ou superior
+- Apache Maven
+- SpringBoot 3
+- MongoDB
+- Postman
 
-- MongoDB.
+## Configs
+
+### `pom.xml`
+Configure as dependências necessárias para o projeto.
+```xml    
+<properties>
+    <java.version>17</java.version>
+</properties>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+### `application.properties`
+Configure a conexão com o banco de dados no projeto Spring
+```properties
+spring.data.mongodb.uri=mongodb://localhost:27017/library
+```
+
+### ` MongoDB Compass`
+Crie o banco e a tabela para o sistema
+```
     DatabaseName: library
     Collection: books
+```
 
-Endpoints REST: 
+### `Endpoints REST:` 
+Com a aplicação rodando, testar os seguintes endpoints no `Postman`
+```
 - Inserir registro de mais de um livro
     Método http: POST
     URL de acesso: localhost:8080/books/insertMult
@@ -74,3 +105,5 @@ Endpoints REST:
 
 - Buscar registros por Ano de Publicação
       GET: localhost:8080/books/findYear?text=1945
+
+```
