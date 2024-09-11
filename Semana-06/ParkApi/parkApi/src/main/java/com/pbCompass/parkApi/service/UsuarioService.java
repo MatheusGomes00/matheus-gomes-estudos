@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor  // inicia a injeção de dependencia via construtor
 @Service
 public class UsuarioService {
@@ -29,5 +31,10 @@ public class UsuarioService {
         Usuario user = buscarPorId(id);
         user.setPassword(password);  // o próprio hibernate salva na memória cash a alteração de senha e atualiza no banco após o retorno
         return user;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Usuario> buscarTodos() {
+        return usuarioRepository.findAll();
     }
 }
