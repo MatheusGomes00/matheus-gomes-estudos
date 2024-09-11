@@ -23,4 +23,11 @@ public class UsuarioService {
                 () -> new RuntimeException("Usuário não encontrado.")
         );
     }
+
+    @Transactional
+    public Usuario editarSenha(Long id, String password) {
+        Usuario user = buscarPorId(id);
+        user.setPassword(password);  // o próprio hibernate salva na memória cash a alteração de senha e atualiza no banco após o retorno
+        return user;
+    }
 }
