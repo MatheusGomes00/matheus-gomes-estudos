@@ -23,4 +23,6 @@ public class UsuarioController {
         Usuario newUser = usuarioService.salvar(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
+
+
 }
