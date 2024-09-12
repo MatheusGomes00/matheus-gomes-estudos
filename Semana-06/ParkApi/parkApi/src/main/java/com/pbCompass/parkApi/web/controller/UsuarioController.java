@@ -5,6 +5,7 @@ import com.pbCompass.parkApi.entity.Usuario;
 import com.pbCompass.parkApi.service.UsuarioService;
 import com.pbCompass.parkApi.web.dto.UsuarioCreateDto;
 import com.pbCompass.parkApi.web.dto.UsuarioResponseDto;
+import com.pbCompass.parkApi.web.dto.UsuarioSenhaDto;
 import com.pbCompass.parkApi.web.dto.mapper.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,13 +30,13 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id){
         Usuario newUser = usuarioService.buscarPorId(id);
-        return ResponseEntity.ok(UsuarioMapper.toDto(newUser));
+        return ResponseEntity.ok(UsuarioMapper.toDto(newUser));  // status code 200
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Usuario> updatePassword(@PathVariable Long id, @RequestBody Usuario usuario){
-        Usuario newUser = usuarioService.editarSenha(id, usuario.getPassword());
-        return ResponseEntity.ok(newUser);
+    public ResponseEntity<Void> updatePassword(@PathVariable Long id, @RequestBody UsuarioSenhaDto senhaDto){
+        Usuario newUser = usuarioService.editarSenha(id, senhaDto.getSenhaAtual(), senhaDto.getNovaSenha(), senhaDto.getConfirmaSenha());
+        return ResponseEntity.noContent().build();  // status code 204
     }
 
     @GetMapping()

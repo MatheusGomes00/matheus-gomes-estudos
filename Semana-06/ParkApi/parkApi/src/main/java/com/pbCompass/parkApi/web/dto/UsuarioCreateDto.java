@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioCreateDto implements Serializable {
+public class UsuarioCreateDto{
 
     private String username;
 

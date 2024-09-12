@@ -27,9 +27,17 @@ public class UsuarioService {
     }
 
     @Transactional
-    public Usuario editarSenha(Long id, String password) {
+    public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
+
+        if(!novaSenha.equals(confirmaSenha)){
+            throw new RuntimeException("Nova senha não confere com confirmação de senha.");
+        }
+
         Usuario user = buscarPorId(id);
-        user.setPassword(password);  // o próprio hibernate salva na memória cash a alteração de senha e atualiza no banco após o retorno
+        if(!user.getPassword().equals(senhaAtual)){
+            throw new RuntimeException("Sua senha não confere.");
+        }
+        user.setPassword(novaSenha);  // o próprio hibernate salva na memória cash a alteração de senha e atualiza no banco após o retorno
         return user;
     }
 
