@@ -7,6 +7,7 @@ import com.pbCompass.parkApi.web.dto.UsuarioCreateDto;
 import com.pbCompass.parkApi.web.dto.UsuarioResponseDto;
 import com.pbCompass.parkApi.web.dto.UsuarioSenhaDto;
 import com.pbCompass.parkApi.web.dto.mapper.UsuarioMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDto> create(@RequestBody UsuarioCreateDto createDto){
+    public ResponseEntity<UsuarioResponseDto> create(@Valid @RequestBody UsuarioCreateDto createDto){
         Usuario newUser = usuarioService.salvar(UsuarioMapper.toUsuario(createDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioMapper.toDto(newUser));
     }
