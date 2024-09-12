@@ -3,6 +3,9 @@ package com.pbCompass.parkApi.web.controller;
 
 import com.pbCompass.parkApi.entity.Usuario;
 import com.pbCompass.parkApi.service.UsuarioService;
+import com.pbCompass.parkApi.web.dto.UsuarioCreateDto;
+import com.pbCompass.parkApi.web.dto.UsuarioResponseDto;
+import com.pbCompass.parkApi.web.dto.mapper.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +21,9 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> create(@RequestBody Usuario usuario){
-        Usuario newUser = usuarioService.salvar(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+    public ResponseEntity<UsuarioResponseDto> create(@RequestBody UsuarioCreateDto createDto){
+        Usuario newUser = usuarioService.salvar(UsuarioMapper.toUsuario(createDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(UsuarioMapper.toDto(newUser));
     }
 
     @GetMapping("/{id}")

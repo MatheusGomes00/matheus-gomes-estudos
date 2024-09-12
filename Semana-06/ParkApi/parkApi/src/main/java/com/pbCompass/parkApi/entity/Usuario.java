@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")  // nome da tabela sempre no plural
 public class Usuario implements Serializable {
@@ -27,19 +29,19 @@ public class Usuario implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false, length = 25)
-    private Role role;  // perfil do usuario
+    private Role role = Role.ROLE_CLIENTE;  // perfil do usuario
 
     @Column(name = "data_criacao")
-    private LocalDateTime dataCriacao;
+    private LocalDateTime dataCriacao;  // atributo para auditoria
 
     @Column(name = "data_modificacao")
-    private LocalDateTime dataModificacao;
+    private LocalDateTime dataModificacao;  // atributo para auditoria
 
     @Column(name = "criado_por")
-    private String criadoPor;
+    private String criadoPor;  // atributo para auditoria
 
     @Column(name = "modificado_por")
-    private String modificadoPor;
+    private String modificadoPor;  // atributo para auditoria
 
 
     public enum Role {
