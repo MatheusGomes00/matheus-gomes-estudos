@@ -7,6 +7,8 @@ import com.pbCompass.parkApi.web.dto.UsuarioResponseDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
+import java.util.List;
+
 public class UsuarioMapper {
 
     public static Usuario toUsuario(UsuarioCreateDto createDto){
@@ -25,5 +27,9 @@ public class UsuarioMapper {
         ModelMapper mapper =  new ModelMapper();
         mapper.addMappings(props);
         return mapper.map(usuario, UsuarioResponseDto.class);
+    }
+
+    public static List<UsuarioResponseDto> toListDto(List<Usuario> usuarios){
+        return usuarios.stream().map(user -> toDto(user)).toList();
     }
 }
