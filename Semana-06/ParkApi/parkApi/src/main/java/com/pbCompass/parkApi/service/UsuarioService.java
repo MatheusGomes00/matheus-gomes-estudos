@@ -1,6 +1,7 @@
 package com.pbCompass.parkApi.service;
 
 import com.pbCompass.parkApi.entity.Usuario;
+import com.pbCompass.parkApi.exception.UsernameUniqueViolationException;
 import com.pbCompass.parkApi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,11 @@ public class UsuarioService {
 
     @Transactional  // Inicia uma transação para garantir que o método seja executado de forma atômica
     public Usuario salvar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+        try {
+            return usuarioRepository.save(usuario);
+        } catch (org.springframework.dao.DataIntegrityViolationException e){
+            throw new UsernameUniqueViolationException(String.format("Username {%s} já cadastrado", usuario.getUsername()));
+        }
     }
 
     @Transactional(readOnly = true)  // Indica que este método realiza apenas uma consulta, sem operações de escrita no banco
