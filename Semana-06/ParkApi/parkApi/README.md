@@ -83,7 +83,17 @@ Com a aplicação rodando, testar os seguintes endpoints no `Postman`
     Body JSON:
     {
       "username": "teste@email.com",
-      "password": "123456",
-      "role": "ROLE_ADMIN"
+      "password": "123456"
     }
+    
+- Alterar senha
+    Método http: PATCH
+    URL de acesso: localhost:8080/api/v1/usuarios/1
+    Body JSON:
+    {
+      "senhaAtual": "teste123",
+      "novaSenha": "teste123",
+      "confirmaSenha": "teste123"
+    }
+
 ```
