@@ -1,6 +1,7 @@
 package com.pbCompass.parkApi.service;
 
 import com.pbCompass.parkApi.entity.Usuario;
+import com.pbCompass.parkApi.exception.EntityNotFoundException2;
 import com.pbCompass.parkApi.exception.UsernameUniqueViolationException;
 import com.pbCompass.parkApi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class UsuarioService {
     @Transactional(readOnly = true)  // Indica que este método realiza apenas uma consulta, sem operações de escrita no banco
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Usuário não encontrado.")
+                () -> new EntityNotFoundException2(String.format("Usuário id=%s não encontrado.", id))
         );
     }
 
