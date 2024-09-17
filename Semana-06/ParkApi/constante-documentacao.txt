@@ -1,0 +1,33 @@
+private static final String[] DOCUMENTATION_OPENAPI = {
+        "/docs/index.html",
+        "/docs-park.html", "/docs-park/**",
+        "/v3/api-docs/**",
+        "/swagger-ui-custom.html", "/swagger-ui.html", "/swagger-ui/**",
+        "/**.html", "/webjars/**", "/configuration/**", "/swagger-resources/**"
+};
+
+------------------------------------------------------------------------------------
+
+OBSERVAÇÃO:
+
+Caso tenha seguido as alterações citadas no documento em anexo da Aula 48, o uso de um array
+com as URLs a serem liberadas não poderá ser adicionado ao método antMatcher(). Portanto,
+as URLs deverão ser adicionadas uma a uma, como no exemplo a seguir:
+
+Oi.
+
+O método antMatcher() não aceita um array, é isso a mensagem está dizendo. Você vai precisar inserir as urls uma a uma:
+
+...
+.requestMatchers(
+    antMatcher(HttpMethod.POST, "/api/v1/usuarios"),
+    antMatcher(HttpMethod.POST, "/api/v1/auth"),
+    antMatcher("/docs-park.html"),
+    antMatcher("/docs-park/**"),
+    antMatcher("/swagger-ui.html"),
+    antMatcher("/swagger-ui/**"),
+    antMatcher("/webjars/**")
+).permitAll()
+...
+
+
