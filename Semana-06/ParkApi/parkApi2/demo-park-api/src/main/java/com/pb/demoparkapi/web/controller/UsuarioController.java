@@ -53,7 +53,7 @@ public class UsuarioController {
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
             })
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")  // habilita o acesso pre autorizado apenas para admins... o springboot por padrão ja tem a entrada ROLE_ considerando apenas o que está depois do underline
+    @PreAuthorize("hasRole('ADMIN') OR (hasRole('CLIENTE') AND #id == authentication.principal.id)")  // habilita o acesso pre autorizado apenas para admins... o springboot por padrão ja tem a entrada ROLE_ considerando apenas o que está depois do underline
     public ResponseEntity<UsuarioResponseDto> getById(@PathVariable Long id) {
         Usuario user = usuarioService.buscarPorId(id);
         return ResponseEntity.ok(UsuarioMapper.toDto(user));
