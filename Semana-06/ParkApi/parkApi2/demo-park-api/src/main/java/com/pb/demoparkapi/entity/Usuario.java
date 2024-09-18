@@ -31,6 +31,7 @@ public class Usuario implements Serializable {
     @Column(name = "role", nullable = false, length = 25)
     private Role role = Role.ROLE_CLIENTE;
 
+    // auditoria
     @CreatedDate
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
