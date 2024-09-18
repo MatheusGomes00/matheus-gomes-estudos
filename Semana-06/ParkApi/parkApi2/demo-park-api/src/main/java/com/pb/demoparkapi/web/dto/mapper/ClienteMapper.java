@@ -2,6 +2,7 @@ package com.pb.demoparkapi.web.dto.mapper;
 
 import com.pb.demoparkapi.entity.Cliente;
 import com.pb.demoparkapi.web.dto.ClienteCreateDto;
+import com.pb.demoparkapi.web.dto.ClienteResponseDto;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -13,7 +14,7 @@ public class ClienteMapper {
         return new ModelMapper().map(dto, Cliente.class);
     }
 
-    public static Cliente toDto(Cliente cliente){
-        return new ModelMapper().map(cliente, Cliente.class);
+    public static ClienteResponseDto toDto(Cliente cliente){
+        return new ModelMapper().map(cliente, ClienteResponseDto.class);
     }
 }
