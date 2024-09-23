@@ -1,0 +1,6 @@
+quando o programa crashar ou apresentar erros;
+ir nos logs de erro do programa;
+buscar por 'Caused by: ...'
+
+na linha do log em que se encontra o 'Caused by' temos a causa do erro que podemos pesquisar no stackoverflow ou no google. na maioria dos casos pesquisar em ingles pode acelerar o processo...
+
