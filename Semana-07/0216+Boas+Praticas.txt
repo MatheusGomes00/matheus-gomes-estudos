@@ -1,0 +1,17 @@
+Paginação dos dados retornado via JSON;
+Configurar filtros para pesquisas e definir regursos lógicos;
+Tolerância a falhas;
+Cache para informações muito solicitadas;
+Conectividade;
+Timeouts;
+Utilizar SSL;
+Versionamento;
+Teste e validação;
+Self-service;
+Marketing;
+Exportações;
+Internacionalização ou I18n;
+Notificações;
+Limite de campos;
+Monitore sua API;
+Selecionar a tecnologia adequada;
