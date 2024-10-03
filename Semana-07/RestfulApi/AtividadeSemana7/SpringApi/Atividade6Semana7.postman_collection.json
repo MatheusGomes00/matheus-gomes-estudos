@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "ee2f4fb4-6f4f-4aa8-9441-70ba45db0855",
+		"name": "Atividade6Semana7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30497222"
+	},
+	"item": [
+		{
+			"name": "Usuarios - access",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Matheus\",\r\n    \"age\": \"Vinte e cinco\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

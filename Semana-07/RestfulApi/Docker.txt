@@ -1,0 +1,5 @@
+docker -v 	 mostra a versão instalada
+docker version 		mostra a versão detalhada
+docker info
+
+docker run hello-world
