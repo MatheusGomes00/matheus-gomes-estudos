@@ -1,0 +1,10 @@
+CREATE USER 'root'@'localhost'
+IDENTIFIED BY 'root';
+
+GRANT CREATE, ALTER, DROP ON starwars.* TO 'root'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON starwars.* TO 'root'@'localhost';
+
+// GRANT ALL PRIVILEGES ON parking_management.* TO 'root'@'localhost';
+

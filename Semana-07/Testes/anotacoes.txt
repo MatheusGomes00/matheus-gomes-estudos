@@ -1,0 +1,22 @@
+https://whimsical.com/tipos-de-teste-automatizado-XkSqgpqWZwnPaF1Kgz1maB
+
+teste de unidade, teste de um método ou classe
+
+teste de integração, bordas da aplicação, banco de dados por exemplo. dublê de testes, simula um banco por exemplo
+
+teste de componente, chamar a API e checar retorno
+
+teste fim a fim, end-to-end, sobe o sistema completa, simula a jornada do usuario
+
+quanto mais vai subindo o nivel de complexidade do teste, mas cobertura e fidelidade vai apresentar.
+
+
+sobre dubles de testes
+https://whimsical.com/dubles-de-teste-BnVqRZNUeHWpCV3FKzXsgt
+
+
+Para os testes de unidade é comum utilizar o AAA, 
+Arrange, fazer os arranjos, tipo stub ou mock quando necessário
+Act, executar a ação
+Assert, verificar o retorno da ação;
+
