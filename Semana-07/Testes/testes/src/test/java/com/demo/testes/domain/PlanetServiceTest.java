@@ -6,9 +6,12 @@ import static com.demo.testes.common.PlanetConstants.INVALID_PLANET;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -16,10 +19,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Example;
 
 import com.demo.swPlanetAPI.domain.Planet;
 import com.demo.swPlanetAPI.domain.PlanetRepository;
 import com.demo.swPlanetAPI.domain.PlanetService;
+import com.demo.swPlanetAPI.domain.QueryBuilder;
 
 @ExtendWith(MockitoExtension.class)
 //@SpringBootTest(classes = PlanetService.class)  gera muito log e verificações desnecessárias, para apenas uma classe ou método
@@ -96,6 +101,30 @@ public class PlanetServiceTest {
     }
 
 
-    
+    @Test
+    public void listPlanets_ReturnsAllPlanets() {
+        List<Planet> planets = new ArrayList<>() {
+            {
+                add(PLANET);
+            }
+        };
+        Example<Planet> query = QueryBuilder.makeQuery(new Planet(PLANET.getClimate(), PLANET.getTerrain()));
+        
+        when(planetRepository.findAll(query)).thenReturn(planets);
+        
+        List<Planet> sut = planetService.list(PLANET.getTerrain(), PLANET.getClimate());
 
+        assertThat(sut).isNotEmpty();
+        assertThat(sut).hasSize(1);
+        assertThat(sut.get(0)).isEqualTo(PLANET);
+    }
+
+    @Test
+    public void listPlanets_ReturnsNoPlanets() {
+        when(planetRepository.findAll(any())).thenReturn(Collections.emptyList());
+
+        List<Planet> sut = planetService.list(PLANET.getTerrain(), PLANET.getClimate());
+
+        assertThat(sut).isEmpty();
+    }
 }
