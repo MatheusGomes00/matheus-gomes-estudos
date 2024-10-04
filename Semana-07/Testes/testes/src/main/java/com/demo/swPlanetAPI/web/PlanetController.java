@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.swPlanetAPI.domain.Planet;
 import com.demo.swPlanetAPI.domain.PlanetService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/planets")
@@ -24,4 +28,11 @@ public class PlanetController {
         return ResponseEntity.status(HttpStatus.CREATED).body(planetCreated);
         
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Planet> getById(@PathVariable("id") Long id) {
+        return planetService.getById(id).map(planet -> ResponseEntity.ok(planet))
+        .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
 }
