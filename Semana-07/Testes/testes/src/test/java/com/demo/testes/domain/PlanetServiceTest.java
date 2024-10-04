@@ -5,8 +5,10 @@ import static com.demo.testes.common.PlanetConstants.PLANET;
 import static com.demo.testes.common.PlanetConstants.INVALID_PLANET;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -126,5 +128,17 @@ public class PlanetServiceTest {
         List<Planet> sut = planetService.list(PLANET.getTerrain(), PLANET.getClimate());
 
         assertThat(sut).isEmpty();
+    }
+
+    @Test
+    public void removePlanet_WithExistingID_doesNotThrowAnyExceptions() {
+        assertThatCode(() -> planetService.remove(1L)).doesNotThrowAnyException();
+    }
+
+    @Test
+    public void removePlanet_WithUnexistingID_doesNotThrowAnyExceptions() {
+        doThrow(new RuntimeException()).when(planetRepository).deleteById(99L);
+        
+        assertThatThrownBy(() -> planetService.remove(99L)).isInstanceOf(RuntimeException.class);
     }
 }

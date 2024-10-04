@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.swPlanetAPI.domain.Planet;
 import com.demo.swPlanetAPI.domain.PlanetService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,5 +51,11 @@ public class PlanetController {
         return ResponseEntity.ok(planets);
     }
     
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remove(@PathVariable("id") Long id) {
+        planetService.remove(id);
+        return ResponseEntity.noContent().build();
+    }
+
     
 }
