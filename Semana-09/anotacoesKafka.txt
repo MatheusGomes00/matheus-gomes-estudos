@@ -1,0 +1,72 @@
+→ Infográfico utilizado no vídeo: http://bit.ly/iniciando-com-kafka
+
+→ Site oficial Apache Kafka: https://kafka.apache.org/
+
+→ Confluent: https://www.confluent.io/
+
+→ Confluent training: https://training.confluent.io/schedule
+
+→ Baixe nosso livro sobre Docker:
+Acesse: https://fullcycle.com.br/
+
+
+Tópicos são divididos em partições
+
+Record anatomy
+
+compacted topic
+
+partições distribuidas
+
+replication factor e brokers, é tipo um balanceamento ou rota alternativa para acesso a dados
+
+delivery, round robin: no key
+
+partition leadership, tem um lider, se ele cair, o follower assume
+
+producer, quem produz a mensagem. pega a mensagem, envia, tenta serializar, particiona, adiciona no broker, topics
+
+delivery guarantees. Ack 0 None, Ack 1 Leader, Ack -1 All... At most once, at least once, exacly once
+
+Idempotent producers
+
+Consumers -> leitores de mensagens
+consumer group recebe uma partição
+com dois producers, um consumer de um consumer group, pode ser sobrecarregado e receber mais de uma partição
+
+encriptação de mensagens
+autenticação e autorização
+permissões para acesso a recursos
+
+kafka connect
+pega informação de um lugar e joga para outro
+conectores ligados a dados e ao kafka e sinks
+workers and tasks
+connect cluster com 3 máquinas
+
+kafka REST proxy
+App -HTTP-> REST Proxy -> Kafka
+
+data compatibility
+confluent schema registry
+IDL Interface Description Language
+Apache AVRO e Protobuffer
+
+kafka streams uma biblioteca em java, para tratamento e gerenciamento de dados
+
+cofluent ksqlDB, rodar comandos sql em filas de mensagens
+
+
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
