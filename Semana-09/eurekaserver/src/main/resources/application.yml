@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eurekaserver  # necessario nome pois os servicos vao se comunicar pelo nome
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eurela: false
+    fetch-registry: false
