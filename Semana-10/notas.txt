@@ -1,0 +1,212 @@
+migrations:
+
+adicionar dependencias do flyway
+<dependency>
+<groupId>org.flywaydb</groupId>
+<artifactId>flyway-core</artifactId>
+</dependency>
+<dependency>
+<groupId>org.flywaydb</groupId>
+<artifactId>flyway-mysql</artifactId>
+</dependency>
+
+
+resources
+    db
+        migration
+	    V1__Create_Table_Person.sql
+	    V2__Populate_Table_Person.sql
+
+se alterar um caractere na migration, muda o rash, quebrando o código, necessário criar outra ou dropar o banco e subir de novo;
+
+adicionar via plugin
+<plugin>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-maven-plugin</artifactId>
+    <configuration>
+        <url>jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio?useTimezone=true&serverTimezone=UTC&useSSL=false</url>
+        <user>root</user>
+        <password>admin123</password>
+    </configuration>
+    <dependencies>
+        <dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql.version}</version>
+	    <exclusions>
+	        <exclusion>
+		    <artifactId>slf4j-api</artifactId>
+		    <groupId>org.slf4j</groupId>
+		</exclusion>
+	    </exclusions>
+	</dependency>
+    </dependencies>
+</plugin>
+
+
+**********************************************************************
+Custom JSON Serialization
+
+@JsonPropertyOrder({"firstItem", "secondItem", "tirdItem", "fourtItem", ...})
+a anotação acima define a ordem de prioridade em que é exposto no JSON. por exemplo, em uma classe VO ou DTO de response
+
+@JsonProperty
+a anotação acima define como será exposto um atributo no JSON
+
+@JsonIgnore
+a anotação acima ignora o atributo no JSON que será exposto
+
+**********************************************************************
+Content Negotiation
+
+capacidade do nosso servidor REST devolver diferentes tipos de resposta JSON, XML, CSV...
+
+https://www.baeldung.com/spring-mvc-content-negotiation-json-xml
+
+adicionar dependencia do jackson xml e yaml
+
+para xml, criar a classe de configuração
+para yaml criar a classe de conversão e adicionar o tipo na classe de configuração
+criar uma classe MediaType, no pacote util. definir os tipos JSON, XML, YAML
+
+**********************************************************************
+Hateoas Hypermedia as the engine of application state
+Com HATEOAS, o cliente interage com a API através de links fornecidos nas respostas. Esses links guiam o cliente sobre quais ações podem ser tomadas a seguir, sem que ele precise conhecer todos os endpoints ou URLs da API de antemão.
+
+adicionar dependencias
+
+classe VO/DTO deve extender RepresentationModel<PersonVO>
+
+**********************************************************************
+A diferença entre **VO** (Value Object) e **DTO** (Data Transfer Object) está em seus propósitos, usos e características no design de software, especialmente em arquiteturas orientadas a objetos. Ambos são usados para encapsular dados, mas suas finalidades e comportamentos são distintos.
+
+### 1. **DTO (Data Transfer Object)**
+
+#### Propósito
+O **DTO** é um objeto usado para **transportar dados** entre diferentes camadas ou sistemas, especialmente em comunicações entre cliente e servidor ou entre serviços de uma arquitetura distribuída (como microserviços). Seu objetivo é **carregar dados** de um lado para o outro de forma eficiente, sem incluir lógica de negócios.
+
+#### Características
+- **Imutabilidade**: Não é obrigatório que um DTO seja imutável, embora seja uma boa prática para garantir a segurança dos dados.
+- **Simples e Estrutural**: Um DTO geralmente contém apenas atributos e **getters/setters**, sem métodos que contenham lógica de negócios.
+- **Seriável**: Frequentemente usado em operações de serialização e deserialização, como em APIs REST (JSON) ou chamadas remotas.
+- **Eficiência**: Um DTO pode ser projetado para transferir apenas os dados necessários, evitando transferir mais informações do que o necessário.
+
+#### Exemplo de Uso
+Em uma aplicação cliente-servidor, o DTO é frequentemente usado para enviar dados entre o servidor e o cliente via HTTP.
+
+```java
+public class ClienteDTO {
+    private String nome;
+    private String email;
+
+    // Construtores, getters e setters
+}
+```
+
+Neste exemplo, o `ClienteDTO` não tem lógica de negócios, apenas serve para carregar os dados de um cliente para transferi-los entre a camada de serviço e a interface.
+
+#### Objetivo Principal
+O principal objetivo do DTO é **otimizar** a comunicação e separar os modelos de domínio internos da aplicação das interações externas.
+
+---
+
+### 2. **VO (Value Object)**
+
+#### Propósito
+O **Value Object (VO)** é uma classe que representa um **valor imutável**. Ao contrário do DTO, que serve apenas para transferência de dados, um VO tem um significado específico e faz parte do **modelo de domínio**. Dois objetos VO com os mesmos valores são considerados **equivalentes**.
+
+#### Características
+- **Imutabilidade**: Um VO **sempre deve ser imutável**. Isso significa que, após ser criado, seus valores não podem ser alterados. Para alterar um valor, você cria uma nova instância.
+- **Sem Identidade**: Diferente de uma Entidade, um VO não tem identidade própria. Ele é identificado apenas por seus atributos. Dois VOs com os mesmos atributos são considerados iguais.
+- **Igualdade**: Dois VOs com os mesmos dados devem ser tratados como equivalentes, independentemente de serem instâncias diferentes.
+- **Lógica de Negócios**: Pode conter lógica de negócios relacionada aos seus atributos. Um VO pode ter validações internas e métodos que operam sobre seus próprios valores.
+
+#### Exemplo de Uso
+Um exemplo comum de VO é a classe `Dinheiro`, que pode encapsular uma quantia monetária em um domínio financeiro.
+
+```java
+public class Dinheiro {
+    private final BigDecimal valor;
+    private final String moeda;
+
+    public Dinheiro(BigDecimal valor, String moeda) {
+        if (valor.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Valor não pode ser negativo");
+        }
+        this.valor = valor;
+        this.moeda = moeda;
+    }
+
+    // Métodos úteis
+    public Dinheiro adicionar(Dinheiro outro) {
+        if (!this.moeda.equals(outro.moeda)) {
+            throw new IllegalArgumentException("Moedas diferentes");
+        }
+        return new Dinheiro(this.valor.add(outro.valor), this.moeda);
+    }
+
+    // Equals e HashCode para comparação baseada em valor
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dinheiro dinheiro = (Dinheiro) o;
+        return valor.equals(dinheiro.valor) && moeda.equals(dinheiro.moeda);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(valor, moeda);
+    }
+}
+```
+
+Neste exemplo:
+- O VO `Dinheiro` é imutável.
+- Ele contém lógica de negócios para garantir que o valor não seja negativo e que não se adicione valores em moedas diferentes.
+- Dois objetos `Dinheiro` com o mesmo valor e moeda são considerados iguais.
+
+#### Objetivo Principal
+O principal objetivo do VO é **modelar conceitos do domínio** de maneira que representem valores de forma imutável e sem identidade.
+
+---
+
+### Principais Diferenças
+
+| Característica            | **DTO (Data Transfer Object)**            | **VO (Value Object)**                  |
+|---------------------------|-------------------------------------------|----------------------------------------|
+| **Propósito**              | Transferir dados entre sistemas/camadas   | Representar um conceito imutável no domínio |
+| **Imutabilidade**          | Não obrigatória (mas recomendada)         | Obrigatória                            |
+| **Contém lógica de negócios?** | Não                                      | Sim                                    |
+| **Comparação**             | Por identidade (geralmente)               | Por valor                              |
+| **Parte do modelo de domínio?** | Não                                      | Sim                                    |
+| **Possui Identidade**      | Não, apenas estrutura de dados            | Não, só valor                          |
+
+### Quando Usar Cada Um
+
+- **DTO**: Use quando você precisa transferir dados entre camadas ou sistemas, especialmente quando trabalha com APIs ou outras formas de comunicação externa. Ideal para interfaces de comunicação com clientes (front-end) ou entre microserviços.
+  
+- **VO**: Use para modelar conceitos de domínio que são definidos apenas pelos seus valores. Útil para capturar significados claros e imutáveis dentro do domínio de negócio.
+
+Em resumo, o **DTO** é uma estrutura leve e prática para mover dados, enquanto o **VO** representa valores significativos e imutáveis no domínio da aplicação.
+
+
+*********************************************************************
+Docker para iniciantes:
+https://www.youtube.com/playlist?list=PL18bbNo7xuh84zAeNjNejyzd1GASt8Q9x
+
+***************************************************
+swagger with postman
+
+***************************************************
+
+CORS compartilhamento de recursos de origem cruzada
+
+https://warcontent.com/cross-origin-resource-sharing/
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+adicionar a anotação @CrossOrigin(origins="localhost:8080")
+
+*********************************************************************
+
+
+
