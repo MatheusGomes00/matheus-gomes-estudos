@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: before-docker
+
+server:
+  port: 80

@@ -1,0 +1,42 @@
+conteineres são mais leves que máquinas virtuais pois não simula os mesmo componentes de uma máquina real, ele usa dos recursos da máquina hospedeira de forma direta.
+
+empacota uma aplicação em um conteiner e pode ser replicados em qualquer ambiente, que esteja com docker instalado.
+
+site para download:
+https://www.docker.com/products/docker-desktop/
+
+talvez seja necessário habilitar a virtualização na BIOS.
+
+docker info		>> informações do docker
+
+docker --version 	>> informações sobre versão
+
+docker run hello-world	>> teste de execução da primeria imagem
+
+
+Dockerfile	>> arquivo comum de texto plano, de sintaxe simples, com instruções de como construir uma imagem
+
+o comando docker build constroi uma imagem Docker a partir do Dockerfile
+
+criar um arquivo no diretório raiz, chamado Dockerfile
+
+primeiro colocamos as especificações da imagem base da linguagem utilizada, depois apontamos o .jar:
+FROM openjdk:17-jdk-slim
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+RUN bash -c 'touch /app.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+
+no diretório raiz do projeto, conferir na pasta target da raiz se gerou o .jar:
+mvn clean package -DskipTests		>> constroi um .jar
+
+ainda no diretorio raiz:
+docker build -t before-docker:0.0.1-SNAPSHOT .		>> constroi a imagem docker
+
+no powershell:
+docker images		>> mostra as imagens locais
+
+parei no vídeo 07A	
+https://www.youtube.com/watch?v=AlyEUo_D6Zk&list=PL18bbNo7xuh84zAeNjNejyzd1GASt8Q9x&index=7&pp=iAQB
+
