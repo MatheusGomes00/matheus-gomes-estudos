@@ -1,0 +1,242 @@
+
+
+https://aws.amazon.com/pt/ec2/getting-started/
+
+O que é a Amazon AWS
+
+AWS surge em 2006 -> cloud computing
+
+Traz a ideia de migrar os servidores e a grande parte da infraestrutura de hardware, local para o virtual. Desta forma não existe mais a nescessidade de datacenters com equipamentos de valores pouco atrativos, para qualquer mercado. A ideia consiste em alocar recursos virtuais de forma que a disponibilidade e durabilidade sejam garantidos em até 99,999999% dos casos, 'até que a primeira falha aconteça'. Assim, é possível criar e gerenciar toda uma infraestrutura virtual, por um precinho mais atrativo? Depende de cada caso de uso, mas pela grande adoção mundial deste novo serviço, é uma tendencia natural que essa linha de tecnologia permaneça por mais longos anos favorecendo o nascimento de grandes outros players do mesmo mercado, descentralizando... acho que é essa a transição do momento atual.
+
+
+Tiers, definem licenças de uso...
+
+
+aws.amazon.com
+
+criar conta...
+
+entrar no console...
+
+AWS Global
+region -> área geográfica de cobertura da AWS no globo. exemplo America do sul - SP
+availability zone -> data centeres, sempre 2 por região, devido redundancia
+edge locations -> armazena mais informações estáticas como caching armazenamento, CDN, cloudfront
+
+https://aws.amazon.com/pt/about-aws/global-infrastructure/
+
+AWS Global Infrastructure
+
+IAM -> Identity Access Management -> gerenciamento de acesso de usuários
+	Users -> aplicar roles(acesso entre serviçso...), permissões, criar grupos, policies em json.
+	MFA -> habilitar 
+	Password Rotation -> 3/6 meses
+	PCI DSS Compilance -> configs do cartão de crédito
+
+Amazon S3 -> Simple Storage Service
+	Armazena arquivos (mp4, docs, jpg...) limite de 5T por arquivo.
+	O mais adequado para a hospedagem de websites estáticos.	
+	Armazena objetos como arquivos e dados.
+
+	Storage unlimited pagando por GB... existem regras sobre as taxas.
+
+	Buckets -> cestas, que vão conter Folders(pastas)
+		buckets precisam ter um nome EXCLUSIVO MUNDIALMENTE
+	exemplo de acesso:
+		https://s3-us-west-2.amazonaws.com/Buckets/folder/arquivo
+		segurança -> https;
+		padrão de referencia -> s3; 
+		região do serviço -> us-west-2 
+
+	avaliability -> 99.9%
+	durability -> 99.99999999999 (integridade)
+
+	componentes: (baseado em objetos) sempre que subimos um arquivo, o S3 primeiro faz o READ e depois o WRITE
+		key -> baseada no nome do arquivo
+		value -> dados do arquivo, conteúdo
+		version -> versão
+		metadata -> armazenamento dos dados tipo o cabeçalho identificador (TAG, LOCAL)
+		versioning -> versionamento like github. criam-se tags/label/identificadores
+		encription -> todo arquivo presente precisa ser decriptado
+		ACL (access lists) -> limita o acesso por grupo/departamento/usuario 
+		bucket policie -> restringe o acesso aos recurso por grupo/departamento/usuario 
+	
+	tiers -> planos e preços
+	s3 standard -> 99.9$ e 9.99...11x9, balancemaneto em pelo menos 2 Availability Zone; cobrado por giga GB
+	s3 IA (infriquenty Access) -> mais barato, mas sempre que acessado, gera uma FEE a ser paga. tem 2. Availability Zone. acesso não frequente
+	s3 one zone -> ainda mais barato, mas sempre que acessado, gera uma FEE a ser paga. apenas 1. Availability Zone. acesso não frequente
+	s3 glacier -> backup por exemplo, muito barato, cobrado FEE por retrieval. o acesso aos arquivo liberados de 3 a 5 horas?
+	
+	como é feita a cobrança?
+		storage: independente do tier, paga-se por giga
+		request: por acesso
+		storage management price: (TAG)
+		DTP - Data transfer Pricing: transferencia de dados de região para região. exemplo: um EC2 leste/us para um S3 oeste/us
+		Transfer Aceleration -> CDN, CLOUDFRONT
+
+Amazon EC2 - Elastic compute cloud
+	infra de hardware em nuvem
+
+	planos
+		on demand - servidor virtual, para testes por exemplo, é cobrado por segundo. utiliza de licenças da própria aws
+		reserved instances - servidor virtual cobrado por contrato, pode chegar até 75% menos com relação no on demand. utiliza de licenças da própria aws
+		dedicated hosts - servidor físico, permite uso de licenças próprias, cobrado por hora, pode chegar até 70% menos que os outros serviços
+		spot instances - valores para instancias avulsas, idles 
+	siglas
+		c - compute opt, focado em CPU
+		g - graphics, processamento de vídeo melhor
+		d - dense storage, servidores de arquivos, warehouses
+		r - memory optimized, mais memoria
+		m - uso general, servidores de aplicações 
+		i - high speed storage, 
+		f - programador
+		t - webservers
+		p - GPU/mining/machineLearning
+		x - memorie (apache)
+
+	Volumes EC2
+	EBS -> elastic block storage (disco virtual)
+	
+
+		tipos de volumes que podemos conectar uma máquina virtual
+https://aws.amazon.com/pt/ebs/previous-generation/
+	IOPS -> input/output operations per second. exemplo
+		disco rígido 7200 RPM em média 100 IOPS
+		ssd em média 5000 a 100000 IOPS
+		- GP2 -> SSD, baixo custo, um dos mais utilizados. 3 a 10000 IOPS, tem picos (burst) que podem chegar a 10k de IOPS
+		- Providioned SSD -> alta intensidade (mysql, sql), mais de 10000 IOPS e max 20000 IOPS
+		- ST1 -> hard disk drive, não bootavel, unidade de armazenamento, D:, E: ...
+		- SC1 -> cold HDD -> infrequent access, não bootavel
+		- Magnetic (standard) -> HDD, infrequent access, bootavel
+
+	AMI -> Amazon Machine Image
+	VPC -> Virtual Private Cloud
+	Reserved Instances -> 
+	snapshot -> cópia exata de uma imagem; a partir dela conseguimos mudar a aviability zone de uma imagem, criar uma nova imagem e subir uma nova instancia
+	AMI -> a partir de um snapshot, criamos uma AMI imagem ou instancia para ebs
+	Security Groups -> é por região; stateful, para cada entrada, é criado um fluxo de saída
+
+
+CloudFront - fornece CDN Content Delivery Network
+	é uma cópia de cache de determinado conteúdo para uma EDGE LOCATION, exemplo, websites estaticos, live streaming
+	acesso de recursos entre continentes, pode gerar atraso de resposta e delay, uma cópia cache em uma edge location mais próxima resolve 
+	o primeiro acesso é sempre mais lento, a partir do segundo, o tempo de resposta melhora consideravelmente
+
+Storage Gateway
+https://docs.aws.amazon.com/storagegateway/
+	envolve o conceito de transferencia do DC para o S3, o gateway faz essa ponte.
+	então no data center da empresa, é instalado em uma VMWARE o Storage Gateway, que faz a comunicação e replica para uma bucket do S3
+	3 tipos de transferencia
+		file gateway (pictures, videos, pdf, docs...) nfs
+		volum gateway (sistema operacional em vmware) iscsi
+		tape gateway (backup VTL convertido em Virtual VTL) glacier 
+
+SnowBall
+https://aws.amazon.com/pt/snowball/
+	a ideia surge na necessidade de facilitar a transferencias de grandes volumes de dados para os ambientes informatizados da amazon. Pela rede, pode levar meses ou anos para se transferir terabytes ou pentabytes de arquivos... até 2015, as empresas podiam fazer o backup em discos fisicos e enviar para um polo da amazon, mas foi cancelada esta prática e padronizado o snowball, parece uma maleta, mas com capacidade absurda:
+	80TB
+	encryption 256 bit
+	10gb
+SnowBall Edge
+	similar a uma snowball, mas com uma CPU integrada
+SnowMobile
+	literalmente um conteiner em um caminhão que armazena até 100PentaBytes
+
+
+
+
+
+AWS CLI
+	procurar pelo instalador .msi da aws cli
+	no cmd rodar o comando para verificar se foi instalado: aws --version
+	se aparecer a versão, é pq instalou
+	para vincular a cli com a conta aws: aws configure
+	vai pedir uma acces key e a secret, que seria usuário e senha
+	depois pede a região: sa-east-1
+	depois o formato da output: text
+	listar comandos possiveis: aws ls
+
+Cross-Replication s3
+	replicar uma bucket de uma região para outra, por exemplo, criar um backup
+	na console, ir em buckets, management, replication, seguir o passo a passo adicionando a origem e destino de cross-replication
+	na parte de configuração da regra de replication, alterar se aplicavel alteração do tipo de armazenamento, pode gerar economia, glacier, one zone, standard...
+	depois na CLI forçar a primeira cópia dos arquivos: aws s3 cp --recursive s3://bucketOrigem s3://bucketDestino
+	o cross-replication não faz a cópia de deleções, arquivos deletados na bucket original não é replicado na bucket de backup
+
+LyfeCycle s3
+	Use regras de ciclo de vida para definir ações que você deseja que o Amazon S3 execute durante a vida útil de um objeto, como fazer a transição de objetos para outra classe(tier) de armazenamento, arquivá-los ou excluí-los após um período especificado.
+	na console s3, gerenciamento, lifecicle, adicionar regra, configurar as regras do ciclo de vida
+	
+Cloudfront CDN
+	criar uma bucket e subir um arquivo de vídeo, verificar se o acesso do arquivo está publico;
+	acessar serviços, cloudfront;
+	criar distribuição, web (live stream) ou rtmp (media);
+		
+Snowball
+	https://aws.amazon.com/pt/snowball/
+
+s3 Transfer acceleration
+	faz basicamente o upload de um arquivo para as edge location mais próximas e depois a infra da amazon envia para o servidor origem/destino;
+	diminui consideravelmente a velocidade de upload de arquivos para o servidor
+	acessar a console, s3, abrir uma bucket
+	pripriedades, transfer acceleration
+
+
+
+**********************************************************************************************
+Console Home
+EC2
+
+Launch an instance
+
+add new tag
+Key = Name
+Value=teste
+Resource types=instances, volumes
+
+add new tag
+Key = CostCenter
+Value=teste
+Resource types=instances, volumes
+
+add new tag
+Key = Project
+Value=teste
+Resource types=instances, volumes
+
+Key pair 	- usado para fazer conexão por CLI
+create a new pair
+
+habilitar HTTP e HTTPS
+
+
+
+Advanced details
+Choose file
+
+
+
+public ACL
+
+**********************************************************
+semana 11
+teoria computação em nuvem -> done
+teoria servidores virtuais com ec2 -> done
+teoria cloudfront e cdn, snow ball e storage gateway -> done
+
+feedback chegou por escrito;
+
+pratica computação em nuvem -> done
+pratica servidores virtuais -> done
+pratica S3 e cloudfront -> to do
+
+formulário -> done
+
+semana 12 
+restful with aws -> to do
+
+
+
+
+
+
