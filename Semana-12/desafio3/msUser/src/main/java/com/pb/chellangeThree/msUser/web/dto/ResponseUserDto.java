@@ -1,5 +1,6 @@
 package com.pb.chellangeThree.msUser.web.dto;
 
+import com.pb.chellangeThree.msUser.entity.Address;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class ResponseUserDto {
 
     private String email;
 
-    // private String cep;
+    private ResponseAddressDto address;
 }

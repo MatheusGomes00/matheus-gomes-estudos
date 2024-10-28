@@ -7,15 +7,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+@NoArgsConstructor
+public class ResponseAddressDto {
 
-    private String username;
-
-    private String password;
-
-    private String email;
-
-    private String cep;
+    private String zipCode;
+    private String street;
+    private String district;
+    private String city;
+    private String state;
 }
