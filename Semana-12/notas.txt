@@ -1,0 +1,92 @@
+multpartfile  -> propriedade para segmentar um arquivo em pequenas partes
+necessário configurar no yaml
+
+
+Dockerizando a aplicação
+
+docker client ->
+
+docker compose -> uma abstração sobre o docker client que pode ser instalado jundo com o docker. Usado para inicializar múltiplos contêineres docker simultanemanete. Simplifica e encapsula alguns dos argumentos que passamos no comando 'docker run'.
+
+
+spring boot with docker = spring.io/guides/topicals/spring-boot-docker
+
+
+abrir o terminal no diretorio raiz do projeto e rodar o comando para gerar o arquivo .jar 
+mvn clean package -DskipTests
+
+
+na raiz do projeto, criar um arquivo Dockerfile
+dentro deste arquivo colar o inicio
+
+FROM openjdk:17-jdk-slim
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+
+
+criar o docker-compose.yml fora do diretório raiz do projeto
+
+version: '3.9'
+services:
+    db: 
+        image: mysql: 8.0.29
+	command: mysqld --default-authentication-plugin=mysql_native_password
+	restart: always
+	environment:
+	    TZ: America/Sao_Paulo
+	    MYSQL_ROOT_PASSWORD: root
+	    MYSQL_USER: docker 
+	    MYSQL_PASSWORD: root
+	    MYSQL_DATABASE: rest_with_spring_boot_erudio
+	    MYSQL_ROOT_HOST: '%'
+ 	    MYSQL_TCP_PORT: 3308
+	ports:
+	    - 3308:3308
+	expose:
+	    - 3308
+	networks:
+	    - erudio-network
+    rest-with-spring-boot-erudio:
+	image: matheusgomes/rest-with-spring-boot-erudio
+	restart: always
+	build: ./rest-with-spring-boot-and-java-erudio
+	working_dir: /rest-with-spring-boot-and-java-erudio
+	environment:
+	    TZ: America/Sao_Paulo
+	    SPRING.DATASOURCE.URL: jdbc:mysql://db:3308/rest-with-spring-boot-and-java-erudio?useTimezone=true&serverTimezone=UTC
+	    SPRING.DATASOURCE.USERNAME: root
+	    SPRING.DATASOURCE.PASSWORD: root
+	ports:
+	    - 80:80
+	command: mvn spring-boot:run
+	depends_on:
+	    - db
+	networks:
+	    - erudio-network
+networks:
+    erudio-network:
+	driver: bridge
+
+
+no diretório onde está o arquivo docker compose abrir o terminal e rodar o comando:
+docker compose up -d --build		sobe os containeres declarados no arquivo docker compose
+
+docker ps	>> status dos containeres ativos
+docker images 	>> imagens criadas
+docker ps -a	>> lista todos os contêineres
+
+
+docker hub é tipo um github de imagens oficiais do docker
+
+
+
+
+
+
+
+
+
+
+
