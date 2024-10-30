@@ -24,6 +24,8 @@ ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
+no diretório raíz do projeto, criar a imagem docker:
+docker build -t msUser-0.0.1-SNAPSHOT .
 
 
 criar o docker-compose.yml fora do diretório raiz do projeto
