@@ -23,8 +23,8 @@ public class ProducerMessage {
     }
 
     public void send(ProcessedRequest message) {
-        logger.info("Enviando mensagem para o tópico {}...", topic);
+        logger.info("Send message to topic {}...", topic);
         kafkaTemplate.send(topic, message);
-        logger.info("Mensagem enviada para o tópico {}!", topic);
+        logger.info("Message send to the topic {}!", topic);
     }
 }

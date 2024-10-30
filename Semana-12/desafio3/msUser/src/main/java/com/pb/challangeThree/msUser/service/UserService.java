@@ -9,20 +9,15 @@ import com.pb.challangeThree.msUser.exception.UserUniqueViolationException;
 import com.pb.challangeThree.msUser.feign.FeignClientSource;
 import com.pb.challangeThree.msUser.record.ProcessedRequest;
 import com.pb.challangeThree.msUser.repository.UserRepository;
-import com.pb.challangeThree.msUser.security.SecurityConfig;
 import com.pb.challangeThree.msUser.web.dto.*;
 import com.pb.challangeThree.msUser.web.dto.mapper.AddressMapper;
 import com.pb.challangeThree.msUser.web.dto.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-import java.util.Random;
 
 @RequiredArgsConstructor
 @Service

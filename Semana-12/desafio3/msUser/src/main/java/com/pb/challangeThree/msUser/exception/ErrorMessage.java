@@ -6,10 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-
-import java.util.HashMap;
 import java.util.Map;
 
 @NoArgsConstructor
@@ -27,7 +23,7 @@ public class ErrorMessage {
 
     private String message;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)  // inclui apenas se o campo não for nulo
+    @JsonInclude(JsonInclude.Include.NON_NULL)  // only includes if the field is not null
     private Map<String, String> errors;
 
     public ErrorMessage(HttpServletRequest request, HttpStatus status, String message) {
