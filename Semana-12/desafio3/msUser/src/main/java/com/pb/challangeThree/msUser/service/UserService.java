@@ -9,6 +9,7 @@ import com.pb.challangeThree.msUser.exception.UserUniqueViolationException;
 import com.pb.challangeThree.msUser.feign.FeignClientSource;
 import com.pb.challangeThree.msUser.record.ProcessedRequest;
 import com.pb.challangeThree.msUser.repository.UserRepository;
+import com.pb.challangeThree.msUser.security.SecurityConfig;
 import com.pb.challangeThree.msUser.web.dto.*;
 import com.pb.challangeThree.msUser.web.dto.mapper.AddressMapper;
 import com.pb.challangeThree.msUser.web.dto.mapper.UserMapper;
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +31,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final FeignClientSource feignClientSource;
     private final ProducerMessage producerMessage;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Transactional
@@ -37,10 +40,12 @@ public class UserService {
         if(verifyUser.isEmpty()){
             User user = UserMapper.toUser(userDto);
 
+            user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+
             AddressDto addressDto = feignClientSource.findAddressByCep(userDto.getCep());
             Address address = AddressMapper.toAddress(addressDto);
-
             user.setAddress(address);
+
             userRepository.save(user);
 
             ResponseUserDto userResponse = UserMapper.toDto(user);
@@ -77,12 +82,11 @@ public class UserService {
 
         User userToUpdate = user.get();
 
-        if (userToUpdate.getPassword().equals(oldPassword)) {
-            userToUpdate.setPassword(newPassword);
+        if (passwordEncoder.matches(oldPassword, userToUpdate.getPassword())) {
+            userToUpdate.setPassword(passwordEncoder.encode(newPassword));
             userRepository.save(userToUpdate);
 
             sendRequest(updateRequest(userToUpdate.getUsername()));
-
         } else {
             throw new PasswordViolationException("Old password doesn't match!");
         }
