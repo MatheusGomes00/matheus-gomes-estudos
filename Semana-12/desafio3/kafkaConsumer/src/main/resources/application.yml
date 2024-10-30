@@ -1,0 +1,3 @@
+spring:
+  kafka:
+    topics: my_topic

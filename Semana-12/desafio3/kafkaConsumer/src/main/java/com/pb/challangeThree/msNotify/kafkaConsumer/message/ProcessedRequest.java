@@ -1,4 +1,5 @@
-package com.pb.challangeThree.msUser.record;
+package com.pb.challangeThree.msNotify.kafkaConsumer.message;
+
 
 import lombok.*;
 

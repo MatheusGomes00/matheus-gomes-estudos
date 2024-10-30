@@ -1,9 +1,8 @@
 package com.pb.challangeThree.msUser.config;
 
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 import com.pb.challangeThree.msUser.record.ProcessedRequest;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -17,21 +16,17 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-    @Value(value = "$spring.kafka.bootstrap-servers}")
-    private String bootstrapAddress;
-
     @Bean
-    public ProducerFactory<String, ProcessedRequest> requestProducerFactory() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        return new DefaultKafkaProducerFactory<>(props);
+    public ProducerFactory<String, ProcessedRequest> producerFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        return new DefaultKafkaProducerFactory<>(configProps);
     }
 
     @Bean
-    public KafkaTemplate<String, ProcessedRequest> requestKafkaTemplate() {
-        return new KafkaTemplate<>(requestProducerFactory());
+    public KafkaTemplate<String, ProcessedRequest> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
     }
 }

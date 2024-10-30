@@ -14,6 +14,7 @@ import com.pb.challangeThree.msUser.web.dto.mapper.AddressMapper;
 import com.pb.challangeThree.msUser.web.dto.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,10 +28,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final FeignClientSource feignClientSource;
-
-    private final Random random = new Random();
-
-    private final KafkaTemplate<String, ProcessedRequest> kafkaTemplate;
+    private final ProducerMessage producerMessage;
 
 
     @Transactional
@@ -100,10 +98,7 @@ public class UserService {
 
     @SuppressWarnings("null")
     public void sendRequest(ProcessedRequest request) {
-        int partition = random.nextInt(2);
-        System.out.println("Sent message to partition: " + partition);
-        System.out.println("Username message request: " + request.userName());
-        kafkaTemplate.send("request-processed", partition, null, request);
+        producerMessage.send(request);
     }
 
 }
