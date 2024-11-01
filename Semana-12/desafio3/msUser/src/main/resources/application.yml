@@ -4,13 +4,15 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ms_users?useTimezone=true&serverTimezone=UTC
-    username: dev
-    password: 963258
+    username: root
+    password: root
   jpa:
-    open-in-view: false
     hibernate:
-      ddl-auto: update
-    show_sql: false
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
   kafka:
     topics: my_topic
 server:
