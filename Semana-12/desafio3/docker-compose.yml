@@ -1,24 +1,37 @@
 version: '3.9'
 
-networks:
-  my-network:
-    driver: bridge
-
 services:
-  db: 
+  dbmysql:
     image: mysql:latest
-    restart: always
     environment:
-      TZ: America/Sao_Paulo
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: admin123
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ms_users
-      MYSQL_ROOT_HOST: '%'
     ports:
-      - "3308:3306"
-    expose:
-      - "3308"
+      - "3306:3306"
     networks:
-      - my-network
+      - mynetwork
+
+  msuser:
+    image: msuser:0.0.1-snapshot
+    build:
+      context: ./msUser
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://dbmysql:3306/ms_users?useTimezone=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: docker
+      SPRING_DATASOURCE_PASSWORD: admin123
+      JWT_PRIVATE_KEY: classpath:app.key
+      JWT_PUBLIC_KEY: classpath:app.pub
+    ports:
+      - "8081:8081"
+    command: mvn spring-boot:run
+    depends_on:
+      - dbmysql
+    networks:
+      - mynetwork
   
   zookeeper:
     image: zookeeper:3.7
@@ -27,47 +40,25 @@ services:
     ports:
       - "2181:2181"
     networks:
-      - my-network
+      - mynetwork
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
-    ports:
-      - "9092:9092"
+    container_name: broker
     environment:
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
       KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://kafka:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "my_topic:3:1"
+      KAFKA_CREATE_TOPICS: "my_topic"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     depends_on:
       - zookeeper
-    networks:
-      - my-network
-
-  msuser:
-    image: msuser:0.0.1-snapshot
-    restart: always
-    build:
-      context: ./msUser
-      dockerfile: Dockerfile
-    environment:
-      TZ: America/Sao_Paulo
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3308/ms_users?useTimezone=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-      SPRING_KAFKA_TOPICS: my_topic
-      JWT_PRIVATE_KEY: classpath:app.key
-      JWT_PUBLIC_KEY: classpath:app.pub
-      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
-      - "8081:8081"
-    command: mvn spring-boot:run
-    depends_on:
-      - db
-      - kafka
+      - "9092:9092"
     networks:
-      - my-network
+      - mynetwork
 
   kafkaconsumer:
     image: kafkaconsumer:0.0.1-snapshot
@@ -82,4 +73,9 @@ services:
       - kafka
     command: mvn spring-boot:run
     networks:
-      - my-network
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: 
+      bridge
