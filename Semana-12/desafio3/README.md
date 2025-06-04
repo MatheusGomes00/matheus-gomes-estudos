@@ -9,7 +9,7 @@ Desenvolvimento com as principais tecnologias aprendidas nas trilhas de conhecim
 - Implementação de controle de endpoints através de autenticação e autorização com token JWT.
 - Implementação de mensageria para comunicação entre microserviços com apache kafka e zookeeper.
 - Dockerização da aplicação via docker compose.
-- Deploy na AWS em uma instancia EC2.
+- Deploy na AWS em uma instancia EC2, se aplicável.
 
 ## Ferramentas utilizadas:
 - Java Development Kit (JDK) 17
